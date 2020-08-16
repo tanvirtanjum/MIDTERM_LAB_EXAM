@@ -22,6 +22,11 @@ router.get('/', function(req, res)
 		{
 			res.redirect("/employee");
 		}
+		if(req.session.type == 3)
+		{
+			msg="Customers Are Not Allowed To Login";
+			res.render('login/index',{msg: msg});
+		}
 	}
 });
 
@@ -49,6 +54,12 @@ router.post('/',function(req, res)
 		  else if(req.session.type == 2)
 		  {
 				res.redirect('/employee');
+			}
+
+			else if(req.session.type == 3)
+			{
+				msg="Customer Are Not Allowed To Login";
+				res.redirect("/login");
 			}
 
 			else
