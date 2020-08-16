@@ -17,7 +17,7 @@ router.post('/', function(req, res)
 {
 	if(req.body.hasOwnProperty("mp"))
 	{
-		//res.redirect('employee/myprofile');
+		res.redirect('employee/add');
 	}
 
 	else if (req.body.hasOwnProperty("up"))
@@ -25,6 +25,18 @@ router.post('/', function(req, res)
 		//res.redirect('employee/updateprofile');
 	}
 
+});
+
+router.get('/add', function(req, res)
+{
+	if(req.session.type == 2)
+	{
+		res.render('employee/add/index');
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 module.exports = router;
