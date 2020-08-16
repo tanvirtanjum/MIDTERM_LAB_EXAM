@@ -41,6 +41,35 @@ router.get('/add', function(req, res)
 	}
 });
 
+router.post('/add', function(req, res)
+{
+	if(req.session.type == 2)
+	{
+		info=
+		{
+			a: req.body.a,
+			b: req.body.b,
+			c: req.body.c
+		}
+
+		product.insert(info, function(result)
+		{
+			if(result)
+			{
+				res.redirect('/employee/allproducts');
+			}
+			else
+			{
+				res.redirect('/employee/add');
+			}
+		});
+	}
+	else
+	{
+		res.redirect("/login");
+	}
+});
+
 router.get('/allproducts', function(req, res)
 {
 	if(req.session.type == 2)

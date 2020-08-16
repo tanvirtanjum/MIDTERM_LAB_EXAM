@@ -16,6 +16,21 @@ module.exports =
 				callback([]);
 			}
 		});
+	},
+	insert: function(user, callback)
+  {
+		var sql = "INSERT INTO `prod`(`name`, `price`, `quant`) VALUES ('"+user.a+"','"+user.c+"','"+user.b+"');";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
 	}
-  
+
 }
