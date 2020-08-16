@@ -50,6 +50,22 @@ module.exports =
 		});
 	},
 
+	up: function(user, callback)
+  {
+		var sql = "UPDATE `prod` SET `name`='"+user.a+"', `quant`='"+user.b+"', `price`='"+user.c+"' WHERE `id`='"+user.d+"';";
+		db.execute(sql, function(result)
+    {
+      if(result)
+      {
+				callback(true);
+			}
+      else
+      {
+				callback(false);
+			}
+		});
+	},
+
 	delete: function(user, callback)
   {
 		var sql = "DELETE FROM `prod` WHERE `id`='"+user+"';";

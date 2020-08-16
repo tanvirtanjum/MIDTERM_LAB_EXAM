@@ -13,20 +13,21 @@
 
         <tr>
           <td> NAME </td>
-          <td> <input type='text' name='a' value='<%= list[0].name %>' ></td>
+          <td> <input type='text' name='a' value='<%= list[0].name %>' ><span style="color: red;"><%= err.a %></span></td>
         </tr>
 
         <tr>
           <td> Quantity </td>
-          <td> <input type='number' name='b' value='<%= list[0].quant %>' > </td>
+          <td> <input type='number' name='b' min="1" value='<%= list[0].quant %>' ><span style="color: red;"><%= err.b %></span> </td>
         </tr>
 
         <tr>
           <td> PRICE: </td>
-          <td> <input type='number' name='c' value='<%= list[0].price %>' > </td>
+          <td> <input type='number' name='c' min="1" value='<%= list[0].price %>' ><span style="color: red;"><%= err.c %></span> </td>
         </tr>
       </table>
     <input type="submit" value='Update'>
+    <br><a href="/logout"> LOGOUT </a>
     </form>
   </body>
 </html>
