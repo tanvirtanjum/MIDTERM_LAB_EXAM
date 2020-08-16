@@ -84,4 +84,31 @@ router.get('/allproducts', function(req, res)
 		res.redirect("/login");
 	}
 });
+
+
+router.get('/product/delete/:id', function(req, res)
+{
+	product.getProd(req.params.id,function(result)
+	{
+		res.render('employee/allproducts/delete/index', {list: result});
+	});
+});
+
+router.post('/product/delete/:id', function(req, res)
+{
+	if(req.body.hasOwnProperty("y"))
+	{
+		product.delete(req.params.id, function(resp)
+		{
+			res.redirect('/employee/allproducts');
+		});
+	}
+
+	else if (req.body.hasOwnProperty("n"))
+	{
+		res.redirect('/employee/allproducts');
+	}
+});
+
+
 module.exports = router;
