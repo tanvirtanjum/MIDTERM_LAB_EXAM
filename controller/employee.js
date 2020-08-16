@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var log_in 	= require.main.require('./models/product');
+var product 	= require.main.require('./models/product');
 
 router.get('/', function(req, res)
 {
@@ -45,7 +45,10 @@ router.get('/allproducts', function(req, res)
 {
 	if(req.session.type == 2)
 	{
-		res.render('employee/add/index');
+		product.getALL(function(result)
+		{
+			res.render('employee/allproducts/index',{list: result});
+		});
 	}
 	else
 	{

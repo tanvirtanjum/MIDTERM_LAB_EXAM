@@ -1,83 +1,34 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> ADD EMPLOYEE </title>
-    <script>
-      function validate()
-      {
-        var a = document.getElementById('a').value;
-        var b = document.getElementById('b').value;
-        var c = document.getElementById('c').value;
-
-        var err = false;
-        if(a.length < 1)
-        {
-          err = true;
-          document.getElementById("at").innerHTML = "*";
-          //document.getElementById("at").innerHTML ="*";
-        }
-        else
-        {
-          //err = false;
-          document.getElementById("at").innerHTML = "";
-        }
-        if(b.length < 1)
-        {
-          err = true;
-          document.getElementById("bt").innerHTML = "*";
-          //document.getElementById("at").innerHTML ="*";
-        }
-        else
-        {
-          //err = false;
-          document.getElementById("bt").innerHTML = "";
-        }
-        if(c.length < 1)
-        {
-          err = true;
-          document.getElementById("ct").innerHTML = "*";
-          //document.getElementById("at").innerHTML ="*";
-        }
-        else
-        {
-          //err = false;
-          document.getElementById("ct").innerHTML = "";
-        }
-
-        if(!err)
-        {
-          return true;
-        }
-        else
-        {
-          return false;
-        }
-      }
-    </script>
+    <title> ALL PRODUCT LIST </title>
   </head>
   <body>
+    <div style='width:100%;'>
     <form method='post'>
-      <table>
-        <tr>
-          <td> Product Name: </td>
-          <td> <input type='text' id="a" name='uname'> <span id="at" style="color:red;"> </span> </td>
-        </tr>
+      <table style="width:100%;border: 2px, solid;" allign="middle" border="20">
+        <thead>
+          <td> Name </td>
+          <td> Quantity </td>
+          <td> Price </td>
+          <!--<td> ACTION </td>
+          <td> ACTION </td>-->
+        </thead>
 
-        <tr>
-          <td> Price: </td>
-          <td> <input type='text' id="b" name='qunat'> <span id="bt" style="color:red;"> </span> </td>
-        </tr>
-
-        <tr>
-          <td> Quantity: </td>
-          <td> <input type='number' id="c" name='price'> <span id="ct" style="color:red;"> </span> </td>
-        </tr>
-
-        <tr>
-          <td colsapn='2' align='center'> <input type='submit' name='add' value='ADD' onclick="return validate()"> </td>
-        </tr>
+        <tbody>
+            <% for(var i=0; i < list.length; i++){ %>
+            <tr>
+              <td><%= list[i].name %></td>
+              <td><%= list[i].quant %></td>
+              <td><%= list[i].price %></td>
+              <td> <a a href="/employee/product/update/<%= list[i].id %>">UPDATE</a></td>
+              <td> <a a href="/employee/product/delete/<%= list[i].id %>">DELETE</a></td>
+            </tr>
+            <% } %>
+          </tbody>
       </table>
       <a href="/logout"> LOGOUT </a>
+    </div>
 
     </form>
 
