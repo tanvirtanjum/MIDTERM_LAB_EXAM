@@ -2,10 +2,11 @@ var express = require('express');
 var exSession = require('express-session');
 var bodyParser = require('body-parser');
 
-var login 		= require('./controller/login');
-var logout 		= require('./controller/logout');
-var admin 		= require('./controller/admin');
-var employee 		= require('./controller/employee');
+var login = require('./controller/login');
+var reg = require('./controller/reg');
+var logout = require('./controller/logout');
+var admin = require('./controller/admin');
+var employee = require('./controller/employee');
 
 var app 		= express();
 
@@ -26,13 +27,14 @@ app.use(function(req, res, next)
 //middleware
 app.use('/login', login);
 app.use('/logout', logout);
+app.use('/registration', reg);
 app.use('/admin', admin);
 app.use('/employee', employee);
 
 
 app.get('/', function(req, res)
 {
-	res.send("Go to >> <a href='/login'> LOGIN </a>");
+	res.send("Go to >> <a href='/login'> LOGIN </a><br>Go to >> <a href='/registration'> REGISTRATION </a>");
 });
 
 
