@@ -2,6 +2,11 @@ var express = require('express');
 var exSession = require('express-session');
 var bodyParser = require('body-parser');
 
+var login 		= require('./controller/login');
+var logout 		= require('./controller/logout');
+var admin 		= require('./controller/admin');
+var employee 		= require('./controller/employee');
+
 var app 		= express();
 
 //config
@@ -19,6 +24,10 @@ app.use(function(req, res, next)
 });
 
 //middleware
+app.use('/login', login);
+app.use('/logout', logout);
+app.use('/admin', admin);
+app.use('/employee', employee);
 
 
 app.get('/', function(req, res)
