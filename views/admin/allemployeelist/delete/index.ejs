@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DELETE</title>
+  </head>
+  <body>
+    <form method='post'>
+    <table>
+      <tr>
+        <td> USER NAME </td>
+        <td> <input type='text' name='n' value='<%= list[0].username %>' readonly> </td>
+      </tr>
+
+      <tr>
+        <td> FULL NAME </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>' readonly></td>
+      </tr>
+
+      <tr>
+        <td> Designnation </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>' readonly> </td>
+      </tr>
+
+      <tr>
+        <td> PASS: </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>' readonly> </td>
+      </tr>
+    </table>
+    <input type="submit" name="y" value='Yes'>
+    <input type="submit" name="n" value='No'>
+    <a href="/logout"> LOGOUT </a>
+    </form>
+  </body>
+</html>

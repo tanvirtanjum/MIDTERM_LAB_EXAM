@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> ADD EMPLOYEE </title>
+    <script>
+      function validate()
+      {
+        var a = document.getElementById('a').value;
+        var b = document.getElementById('b').value;
+        var c = document.getElementById('c').value;
+        var d = document.getElementById('d').value;
+        var name = document.getElementById('c').value;
+
+        var err = false;
+        if(a.length < 1)
+        {
+          err = true;
+          document.getElementById("at").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        else
+        {
+          //err = false;
+          document.getElementById("at").innerHTML = "";
+        }
+        if(b.length < 1)
+        {
+          err = true;
+          document.getElementById("bt").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        else
+        {
+          //err = false;
+          document.getElementById("bt").innerHTML = "";
+        }
+        if(c.length < 1)
+        {
+          err = true;
+          document.getElementById("ct").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        else
+        {
+          //err = false;
+          document.getElementById("ct").innerHTML = "";
+        }
+        if(d.length < 11 || d.length > 11)
+        {
+          err = true;
+          document.getElementById("dt").innerHTML = "*";
+          //document.getElementById("at").innerHTML ="*";
+        }
+        else
+        {
+          //err = false;
+          document.getElementById("dt").innerHTML = "";
+        }
+
+        if(!err)
+        {
+          return true;
+        }
+        else
+        {
+          return false;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <form method='post'>
+      <table>
+        <tr>
+          <td> User Name: </td>
+          <td> <input type='text' id="a" name='uname'> <span id="at" style="color:red;"> </span> </td>
+        </tr>
+
+        <tr>
+          <td> Full Name: </td>
+          <td> <input type='text' id="b" name='fname'> <span id="bt" style="color:red;"> </span> </td>
+        </tr>
+
+        <tr>
+          <td> Phone: </td>
+          <td> <input type='number' id="d" name='phone'> <span id="dt" style="color:red;"> </span> </td>
+        </tr>
+
+        <tr>
+          <td> Pass: </td>
+          <td> <input type='text' id="c" name='pass'> <span id="ct" style="color:red;"> </span> </td>
+        </tr>
+
+        <tr>
+          <td> Emp Design: </td>
+          <td>
+            <select name='des'>
+              <option value="1"> Admin </option>
+              <option value="2"> Employee </option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td colsapn='2' align='center'> <input type='submit' name='add' value='ADD' onclick="return validate()"> </td>
+        </tr>
+      </table>
+      <a href="/logout"> LOGOUT </a>
+
+    </form>
+
+  </body>
+</html>

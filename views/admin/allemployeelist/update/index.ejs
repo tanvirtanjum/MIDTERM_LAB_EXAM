@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EDIT</title>
+  </head>
+  <body>
+    <form method='post'>
+    <table>
+      <tr>
+        <td> USER NAME </td>
+        <td> <input type='text' name='n' value='<%= list[0].username %>' readonly> </td>
+      </tr>
+
+      <tr>
+        <td> FULL NAME </td>
+        <td> <input type='text' name='p' value='<%= list[0].fname %>'> <span style="color: red"> <%= err.a %> </span></td>
+      </tr>
+
+      <tr>
+        <td> MOBILE </td>
+        <td> <input type='text' name='c' value='<%= list[0].con %>'> <span style="color: red"> <%= err.c %> </span></td>
+      </tr>
+
+      <tr>
+        <td> Designnation </td>
+        <td> <input type='text' name='d' value='<%= list[0].status %>'> </td>
+      </tr>
+
+      <tr>
+        <td> PASS: </td>
+        <td> <input type='text' name='b' value='<%= list[0].pass %>'> <span style="color: red"> <%= err.b %> </span> </td>
+      </tr>
+    </table>
+    <input type="submit" value='Update'>
+    </form>
+  </body>
+</html>
