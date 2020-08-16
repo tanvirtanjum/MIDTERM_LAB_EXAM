@@ -100,6 +100,21 @@ router.get('/product/delete/:id', function(req, res)
 	}
 });
 
+router.get('/product/update/:id', function(req, res)
+{
+	if(req.session.type == 2)
+	{
+		product.getProd(req.params.id,function(result)
+		{
+			res.render('employee/allproducts/update/index', {list: result});
+		});
+	}
+	else
+	{
+		res.redirect("/login");
+	}
+});
+
 router.post('/product/delete/:id', function(req, res)
 {
 	if(req.body.hasOwnProperty("y"))
