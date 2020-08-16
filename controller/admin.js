@@ -86,14 +86,21 @@ router.get('/allemployeelist', function(req, res)
 });
 router.get('/update/:id', function(req, res)
 {
-	user=
+	if(req.session.type == 1)
 	{
-		username: req.params.id
+		user=
+		{
+			username: req.params.id
+		}
+		log_in.getINFO(user,function(result)
+		{
+			res.render('admin/allemployeelist/update/index', {list: result, err: err});
+		});
 	}
-	log_in.getINFO(user,function(result)
+	else
 	{
-		res.render('admin/allemployeelist/update/index', {list: result, err: err});
-	});
+		res.redirect("/login");
+	}
 });
 
 router.post('/update/:id', function(req, res)
@@ -151,14 +158,21 @@ router.post('/update/:id', function(req, res)
 
 router.get('/delete/:id', function(req, res)
 {
-	user=
+	if(req.session.type == 1)
 	{
-		username: req.params.id
+		user=
+		{
+			username: req.params.id
+		}
+		log_in.getINFO(user,function(result)
+		{
+			res.render('admin/allemployeelist/delete/index', {list: result});
+		});
 	}
-	log_in.getINFO(user,function(result)
+	else
 	{
-		res.render('admin/allemployeelist/delete/index', {list: result});
-	});
+		res.redirect("/login");
+	}
 });
 
 router.post('/delete/:id', function(req, res)

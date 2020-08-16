@@ -85,13 +85,19 @@ router.get('/allproducts', function(req, res)
 	}
 });
 
-
 router.get('/product/delete/:id', function(req, res)
 {
-	product.getProd(req.params.id,function(result)
+	if(req.session.type == 2)
 	{
-		res.render('employee/allproducts/delete/index', {list: result});
-	});
+		product.getProd(req.params.id,function(result)
+		{
+			res.render('employee/allproducts/delete/index', {list: result});
+		});
+	}
+	else
+	{
+		res.redirect("/login");
+	}
 });
 
 router.post('/product/delete/:id', function(req, res)
